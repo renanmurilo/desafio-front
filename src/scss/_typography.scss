@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
+@mixin font-inter ($font-size: 16px,
+    $font-weight: 400,
+    $letter-spacing: 0) {
+    font-family: 'Work Sans', sans-serif;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spacing;
+}

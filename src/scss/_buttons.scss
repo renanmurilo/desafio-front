@@ -1,0 +1,17 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 196px;
+    border-radius: 7px;
+    border: none;
+    height: 43px;
+    background-color: transparent;
+    @include font-inter(16px, 400, 0);
+    transition: all .4s;
+
+    &__primary {
+        background-color: $primary;
+        color: $white;
+    }
+}
