@@ -65,6 +65,7 @@ export default {
             padding: 0 3.375rem 0 2.8125rem;
             align-items: center;
             margin-bottom: 5.0625rem;
+            position: relative;
 
             p {
                 @include font-source(1.25rem, 700, 0);
@@ -74,6 +75,7 @@ export default {
 
             .form__search {
                 width: 48.6875rem;
+
                 .form__row {
                     width: 100%;
                     display: flex;

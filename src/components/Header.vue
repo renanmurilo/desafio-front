@@ -44,6 +44,7 @@ header {
     background-color: $white;
     border-bottom: 1px solid #ededed;
     width: 100%;
+    z-index: 9;
 
     .content__nav__bar {
         height: 8.0625rem;
