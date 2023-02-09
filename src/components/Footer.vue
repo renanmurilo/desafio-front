@@ -12,5 +12,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+footer {
+    width: 100%;
+    height: 7.5rem;
+    background-color: $background;
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+}
 </style>

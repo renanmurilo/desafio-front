@@ -19,3 +19,9 @@ export default {
     components: { Header, Footer },
 };
 </script>
+
+<style lang="scss">
+.home {
+    padding-top: 8.0625rem;
+}
+</style>

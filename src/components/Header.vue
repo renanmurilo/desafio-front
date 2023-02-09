@@ -7,9 +7,15 @@
                 </router-link>
 
                 <nav>
-                    <router-link to="/home" class="link">Produtos</router-link>
-                    <router-link to="/checkout">
+                    <router-link to="/products" class="link">
+                        Produtos
+                    </router-link>
+                    <router-link to="/checkout" class="cart">
                         <img src="@/assets/cart.svg" alt="" />
+
+                        <div class="total" v-if="cartProducts.length">
+                            {{ cartProducts.length++ }}
+                        </div>
                     </router-link>
                 </nav>
             </div>
@@ -18,8 +24,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'TheHeader',
+    computed: {
+        ...mapGetters({
+            cartProducts: 'GET_PRODUCTS_CART',
+        }),
+    },
 };
 </script>
 
@@ -40,11 +53,35 @@ header {
         justify-content: space-between;
 
         nav {
+            display: flex;
+            align-items: center;
+
             .link {
                 color: $text;
                 text-decoration: none;
-                @include font-inter(1rem, 700, 0);
+                @include font-source(1rem, 700, 0);
                 margin-right: 1.5rem;
+            }
+
+            .cart {
+                position: relative;
+                display: flex;
+                align-items: flex-end;
+                width: auto;
+
+                .total {
+                    height: 1rem;
+                    bottom: 0;
+                    right: 0;
+                    width: 1rem;
+                    background-color: $red;
+                    border-radius: 100%;
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include font-source(0.625rem, 700, 0);
+                }
             }
         }
     }

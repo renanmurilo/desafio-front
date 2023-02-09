@@ -2,16 +2,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 196px;
-    border-radius: 7px;
+    width: auto;
     border: none;
-    height: 43px;
+    height: 2.5rem;
     background-color: transparent;
-    @include font-inter(16px, 400, 0);
+    @include font-source(16px, 400, 0);
     transition: all .4s;
 
     &__primary {
         background-color: $primary;
         color: $white;
+    }
+
+    &__outline__primary {
+        border: none;
+        background-color: $white;
+        color: $primary;
+        width: 100%;
+        transition: all .4s;
+
+        @media ($tabletMin) {
+            &:hover {
+                background-color: $primary;
+                color: $white;
+                transition: all .4s;
+            }
+        }
     }
 }
