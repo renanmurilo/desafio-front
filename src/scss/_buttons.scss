@@ -12,6 +12,15 @@
     &__primary {
         background-color: $primary;
         color: $white;
+        opacity: 1;
+        transition: all .4s;
+
+        @media ($tabletMin) {
+            &:hover {
+                opacity: .8;
+                transition: all .4s;
+            }
+        }
     }
 
     &__outline__primary {
@@ -28,5 +37,12 @@
                 transition: all .4s;
             }
         }
+    }
+
+    &__gray {
+        background-color: #D0D0D0;
+        width: 16.375rem;
+        height: 3.25rem;
+        color: $text-dark;
     }
 }
