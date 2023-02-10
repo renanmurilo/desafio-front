@@ -11,7 +11,8 @@ const routes = [
     component: HomeView,
     children: [
         { path: '/products', component: () => import('@/pages/products/Index.vue') },
-        { path: '/checkout', component: () => import('@/pages/checkout/Index.vue')}
+        { path: '/checkout', component: () => import('@/pages/checkout/Index.vue')},
+        { path: '/cart', component: () => import('@/pages/carrinho/Index.vue')}
     ]
   },
 ]

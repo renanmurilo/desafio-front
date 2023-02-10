@@ -23,5 +23,6 @@ export default {
 <style lang="scss">
 .home {
     padding-top: 8.0625rem;
+    background-color: $background-light;
 }
 </style>
