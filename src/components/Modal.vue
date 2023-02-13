@@ -29,12 +29,9 @@ export default {
     methods: {
         close() {
             localStorage.clear();
-            window.location.reload();
-
-            setTimeout(() => {
-                this.$store.commit('SET_MODAL', !this.showModal);
-                this.$router.push('/products');
-            }, 1500);
+            this.$store.commit('SET_PRODUCTS_CART', []);
+            this.$store.commit('SET_MODAL', !this.showModal);
+            this.$router.push('/products');
         },
     },
 };
