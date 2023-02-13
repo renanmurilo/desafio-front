@@ -23,4 +23,21 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  const publicPages = [
+    '/products',
+    '/checkout',
+    '/cart'
+  ];
+  const authRequired = !publicPages.includes(to.path);
+
+  let token = localStorage.getItem('token');
+
+  if (authRequired && token === null) {
+    next("/products");
+  } else {
+    next();
+  }
+});
+
 export default router

@@ -24,5 +24,9 @@ export default {
 .home {
     padding-top: 8.0625rem;
     background-color: $background-light;
+
+    @media ($mobile) {
+        padding-top: 6rem;
+    }
 }
 </style>
