@@ -7,12 +7,17 @@
                 <div class="search__products">
                     <p>Encontre seu produto</p>
 
-                    <form action="" class="form__search">
+                    <form
+                        action=""
+                        class="form__search"
+                        @submit.stop.prevent="filteredProducts()"
+                    >
                         <div class="form__row">
                             <input
                                 type="text"
                                 placeholder="Pesquisar..."
                                 class="field"
+                                v-model="searchProduto"
                             />
 
                             <button type="submit" class="btn__search">
@@ -22,8 +27,12 @@
                     </form>
                 </div>
 
-                <div class="inner__products">
-                    <ProductItem :products="products" />
+                <div class="inner__products" v-if="filteredProducts().length">
+                    <ProductItem :products="filteredProducts()" />
+                </div>
+
+                <div class="products__empty" v-else>
+                    <h2>não existem mais produtos</h2>
                 </div>
             </div>
         </div>
@@ -43,8 +52,38 @@ export default {
             products: 'GET_PRODUCTS',
         }),
     },
+    data() {
+        return {
+            searchProduto: '',
+            types: [],
+        };
+    },
     created() {
         this.$store.dispatch('FETCH_PRODUCTS');
+    },
+    mounted() {
+        this.filteredProducts();
+    },
+    methods: {
+        // função para buscar os produtos na api
+        filteredProducts() {
+            let products = this.products.filter((item) => {
+                let match = item.name
+                    .toLowerCase()
+                    .match(this.searchProduto.toLowerCase());
+
+                if (this.types.length && item) {
+                    return match && this.types.includes(item.toLowerCase());
+                }
+
+                return match;
+            });
+
+            return products;
+        },
+        noResults() {
+            return this.filteredProducts.length === 0;
+        },
     },
 };
 </script>
@@ -66,15 +105,43 @@ export default {
             align-items: center;
             margin-bottom: 5.0625rem;
             position: relative;
+            flex-wrap: wrap;
+
+            @media ($tabletMax) {
+                justify-content: center;
+                width: 100%;
+                padding: 0 1.25rem;
+            }
+
+            @media ($mobile) {
+                width: 100%;
+                padding: 0 1.25rem;
+            }
 
             p {
                 @include font-source(1.25rem, 700, 0);
                 color: $text;
                 margin-right: 3.0625rem;
+
+                @media ($tabletMax) {
+                    margin-right: 0;
+                }
+
+                @media ($mobile) {
+                    margin-right: 0;
+                }
             }
 
             .form__search {
                 width: 48.6875rem;
+
+                @media (tabletmax) {
+                    width: 100%;
+                }
+
+                @media ($mobile) {
+                    width: 100%;
+                }
 
                 .form__row {
                     width: 100%;
@@ -107,6 +174,18 @@ export default {
 
         .inner__products {
             width: 100%;
+        }
+
+        .products__empty {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                @include font-source(3.125rem, 600, 0);
+                color: $primary;
+            }
         }
     }
 }

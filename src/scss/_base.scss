@@ -11,4 +11,8 @@ body {
 .shell {
     max-width: 70rem;
     margin: 0 auto;
+
+    @media ($mobile) {
+        margin: 0 1rem;
+    }
 }

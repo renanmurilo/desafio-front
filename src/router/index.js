@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/produtos',
+    path: '/products',
     name: 'HomeView',
     component: HomeView,
     children: [

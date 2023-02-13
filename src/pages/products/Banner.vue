@@ -44,6 +44,14 @@ export default {
                 height: 27.75rem;
                 width: 100%;
                 object-fit: cover;
+
+                @media ($tabletMax) {
+                    height: 100%;
+                }
+
+                @media ($mobile) {
+                    height: 100%;
+                }
             }
         }
         .slick-dots {
@@ -63,12 +71,32 @@ export default {
                 justify-content: center;
                 margin: 0 0.75rem;
 
+                @media ($tabletMax) {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                @media ($mobile) {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
                 & > button {
                     width: 1.625rem;
                     height: 1.625rem;
                     border: none;
                     background: transparent;
                     font-size: 0;
+
+                    @media ($tabletMax) {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+
+                    @media ($mobile) {
+                        width: 1rem;
+                        height: 1rem;
+                    }
                 }
 
                 &.slick-active {
@@ -82,6 +110,16 @@ export default {
                         height: 0.875rem;
                         background-color: $primary;
                         border-radius: 100%;
+
+                        @media ($tabletMax) {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
+
+                        @media ($mobile) {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                        }
                     }
                 }
             }

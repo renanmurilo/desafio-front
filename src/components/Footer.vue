@@ -18,6 +18,10 @@ footer {
     height: 7.5rem;
     background-color: $background;
 
+    @media ($mobile) {
+        height: 5.5rem;
+    }
+
     .logo {
         width: 100%;
         display: flex;

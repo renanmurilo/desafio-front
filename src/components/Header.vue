@@ -2,19 +2,19 @@
     <header>
         <div class="shell">
             <div class="content__nav__bar">
-                <router-link to="/home" class="logo">
-                    <img src="@/assets/logo.svg" alt="" />
+                <router-link to="/products" class="logo">
+                    <img src="@/assets/logo.svg" alt="Logo" />
                 </router-link>
 
                 <nav>
                     <router-link to="/products" class="link">
                         Produtos
                     </router-link>
-                    <router-link to="/checkout" class="cart">
-                        <img src="@/assets/cart.svg" alt="" />
+                    <router-link to="/cart" class="cart">
+                        <img src="@/assets/cart.svg" alt="Cart" />
 
                         <div class="total" v-if="cartProducts.length">
-                            {{ cartProducts.length++ }}
+                            {{ cartProducts.length }}
                         </div>
                     </router-link>
                 </nav>
@@ -52,6 +52,10 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media ($mobile) {
+            height: 6rem;
+        }
 
         nav {
             display: flex;
