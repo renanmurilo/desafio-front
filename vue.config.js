@@ -8,4 +8,11 @@ module.exports = defineConfig({
       },
     },
   },
+  pwa: {
+    name: 'Desafio front-end',
+    themeColor: '#292d3e',
+    msTileColor: '#292d3e',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black'
+  }
 })
